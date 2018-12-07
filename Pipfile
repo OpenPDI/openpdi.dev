@@ -1,0 +1,28 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+flask = "*"
+flask-assets = "*"
+cssmin = "*"
+jsmin = "*"
+ujson = "*"
+gunicorn = "*"
+algoliasearch = "*"
+"jinja2-highlight" = "*"
+
+[dev-packages]
+"beautifulsoup4" = "*"
+cython = "*"
+pyproj = {git = "https://github.com/jswhit/pyproj.git"}
+addfips = "*"
+geopandas = "*"
+geopy = "*"
+wikipedia = "*"
+requests = "*"
+pandas = "*"
+
+[requires]
+python_version = "3.7"

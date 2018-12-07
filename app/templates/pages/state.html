@@ -1,0 +1,146 @@
+{% extends 'layouts/main.html' %}
+{% block title %}OpenPDI{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css" />
+<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.3.0/mapbox-gl-geocoder.css" type='text/css' />
+<link rel="stylesheet" href="{{ url_for('static', filename='css/pages/state.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div id="map-header">
+    <div id="traffic"></div>
+    <div class="map-overlay" id="legend"></div>
+</div>
+
+<section class="usa-section">
+    <div class="usa-grid-full usa-grid-padded">
+        <h1 id="state-title">Fatal officer-involved shootings</h1>
+        <div class="usa-alert usa-alert-info" >
+          <div class="usa-alert-body">
+            <h3 class="usa-alert-heading">Definition</h3>
+            <p class="usa-alert-text">
+                An <i>officer-involved shooting</i> (OIS) is any incident in
+                which a police officer discharges a firearm.
+            </p>
+          </div>
+        </div>
+        <p class="balance-text">
+            In 2015, The Washington Post began maintaining a
+            <a href="https://github.com/washingtonpost/data-police-shootings">database</a>
+            of every <i>fatal</i> officer-involved shooting in the United
+            States. This database includes (among other information) the city
+            where each shooting occurred, which was used to identify the
+            associated county.
+        </p>
+        <p>Click on a county below to learn more.</p>
+    </div>
+    <div class="usa-grid-full usa-grid-padded">
+        <div id="map" class="usa-width-one-half"></div>
+        <div class="usa-width-one-half">
+          <table id="table" class="usa-table-borderless">
+              <thead>
+                <tr>
+                    <th>DATE</th>
+                    <th>AGE</th>
+                    <th>SEX</th>
+                    <th>CENSUS</th>
+                </tr>
+            </thead>
+          </table>
+        </div>
+    </div>
+    <div class="usa-grid-full usa-grid-padded">
+        <p>
+            In addition to the county totals, we've included some high-level
+            summary statistics about the incidents. You can find statistics for
+            the state as a whole via The U.S. Census Bureau's
+            <a href="https://www.census.gov/quickfacts/{{ state_meta['code'].lower() }}">QuickFacts, {{state_meta['code'].upper() }}</a>.
+        </p>
+    </div>
+    <div class="usa-grid-full usa-grid-padded">
+        <div class="usa-width-one-half">
+            <div id="trend"></div>
+        </div>
+        <div class="usa-width-one-half">
+            <div id="pie"></div>
+        </div>
+    </div>
+    <div class="usa-grid-full">
+        <p>
+            The final factor we'll explore is whether or not the subject in the
+            shooting was armed. The "Other" category includes any non-firearm
+            weapon, including knives and blunt instruments.
+        </p>
+    </div>
+    <div class="usa-grid-full usa-grid-padded">
+        <div id="demo"></div>
+    </div>
+    <div class="usa-grid-full">
+        <p>
+            You can find more information, including the original sources for
+            each incident, at The Washington Post's
+            <a href="https://www.washingtonpost.com/graphics/2018/national/police-shootings-2018/">yearly report</a>.
+        </p>
+    </div>
+</section>
+{% endblock %}
+{% block js %}
+
+<script type=text/javascript>
+    var meta={{ state_meta|tojson }};
+</script>
+
+<script src='https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.js'></script>
+<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.3.0/mapbox-gl-geocoder.min.js'></script>
+<script src="{{ url_for('static', filename='js/state/traffic.js') }}"></script>
+
+<script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript">
+    $.fn.dataTable.ext.classes.sPageNext = 'usa-button'
+    var datatable = $('#table').DataTable({
+        'searching': false,
+        'pageLength': 5,
+        'info': false,
+        'lengthChange': false,
+        'columns': [
+          { 'data': 'date' },
+          { 'data': 'age' },
+          { 'data': 'sex' },
+          { 'data': 'census' }
+        ],
+        'columnDefs': [
+          { 'width': '25%', 'targets': 0 }
+        ],
+        'order': [[ 0, 'desc' ]],
+        'language': {
+          'zeroRecords': 'No matching records found.'
+        }
+    })
+</script>
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="//code.highcharts.com/maps/modules/map.js"></script>
+<script src="https://code.highcharts.com/mapdata/countries/us/us-{{ state_meta['code'].lower() }}-all.js"></script>
+
+<script src="{{ url_for('static', filename='js/state/chart.js') }}"></script>
+<script type="text/javascript">
+    shootings_by_county_map (
+        meta['code'].toLowerCase(),
+        {{ by_fips|tojson }},
+        {{ by_county|tojson }},
+        datatable)
+
+    shootings_trend_chart (
+        meta['code'],
+        {{ by_year|tojson }},
+        {{ nation_by_year|tojson }})
+
+    shootings_by_weapon_chart ({{ by_weapon|tojson }})
+
+    shootings_by_race_chart ({{ by_race|tojson }})
+</script>
+
+{% endblock %}

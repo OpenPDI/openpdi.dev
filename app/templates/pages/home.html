@@ -1,0 +1,83 @@
+{% extends 'layouts/main.html' %}
+
+{% block title %}OpenPDI{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.css" />
+<link rel="stylesheet" href="{{ url_for('static', filename='css/pages/home.css') }}">
+{% endblock %}
+
+{% block content %}
+<section>
+  <img src="/static/img/graphic-bg-city.svg" width="100%" height="200px" alt="Cityscape banner">
+</section>
+
+<section class="usa-section">
+  <div class="usa-grid-full" id="sec1">
+    <div class="usa-width-one-third">
+      <h2>Trust through Transparency</h2>
+    </div>
+    <div class="usa-width-two-thirds">
+      <p class="usa-font-lead">
+        The OpenPDI project is an open-source effort to
+        standardize and present data on police activity in the U.S.
+      </p>
+      <p class="usa-font-lead">
+        Our goal is to make it easier for journalists, researchers, and citizens
+        to explore police-related data at the department, state, and national
+        level.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="usa-section usa-section-secondary usa-graphic_list" id="sec2">
+  <div class="usa-grid-full usa-graphic_list-row">
+    <div class="usa-width-one-half usa-media_block">
+      <i class="fas fa-chart-bar fa-3x usa-media_block-img"></i>
+      <div class="usa-media_block-body">
+        <h3>100% Reproducible</h3>
+        <p>
+          Every data source we standardize, use, or present is freely available
+          to the public.
+        </p>
+      </div>
+    </div>
+    <div class="usa-width-one-half usa-media_block">
+      <i class="fas fa-code-branch fa-3x usa-media_block-img"></i>
+      <div class="usa-media_block-body">
+        <h3>Open Source</h3>
+        <p>
+          Our <a href="https://github.com/OpenPDI/openpdi">source code</a>,
+          <a href="https://github.com/OpenPDI/research">publications</a>, and
+          <a href="https://github.com/OpenPDI/openpdi.org">website</a> are all
+          open source and available on GitHub.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="usa-section">
+  <div class="usa-grid-full usa-graphic_list-row">
+    <div class="usa-width-one-half usa-media_block">
+      <h3 id="assessment">State-level data</h3>
+      <p>
+        Browse state-specific data on officer-involved shootings, traffic stops,
+        use-of-force incidents, and more.
+      </p>
+      <p><a href="/state-entry" class="usa-button cta">Choose a state</a></p>
+    </div>
+    <div class="usa-width-one-half usa-media_block">
+      <h3 id="customization">National-level data</h3>
+      <p>
+        Explore national-level data on officer-involved shootings, traffic
+        stops, use-of-force incidents, and more.
+      </p>
+      <p><a href="/national" class="usa-button cta">See the data</a></p>
+    </div>
+</section>
+{% endblock %}
+
+{% block js %}
+{% endblock %}

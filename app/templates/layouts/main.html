@@ -1,0 +1,162 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+
+    {% assets "css_all" %}
+    <link rel="stylesheet" href="{{ ASSET_URL }}" type="text/css" />
+    {% endassets %}
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/extra.css') }}">
+
+    {% block css %} {% endblock %}
+
+    <link rel="shortcut icon" href="/static/favicon.ico">
+</head>
+
+<body id="container">
+    <a class="usa-skipnav" href="#main-content">Skip to main content</a>
+
+    <div class="site-banner-news">
+        <p>
+            <i class="fas fa-exclamation-circle"></i>
+            We're currently running a <a href="">GoFundMe</a> campaign
+            to support further work on this project.
+        </p>
+    </div>
+
+    <header class="usa-header usa-header-extended" role="banner">
+        <div class="usa-navbar">
+            <div class="usa-logo" id="extended-logo">
+                <em class="usa-logo-text">
+            <a href="/"
+              title="Home"
+              aria-label="Home">
+                <img src="/static/img/PDI.svg" width="50" alt="OpenPDI logo" class="align-center mobile-hide"> OpenPDI
+            </a>
+          </em>
+            </div>
+            <button class="usa-menu-btn">Menu</button>
+        </div>
+        <nav role="navigation" class="usa-nav">
+            <div class="usa-nav-inner">
+                <button class="usa-nav-close">
+                    <img src="/static/img/close.svg" alt="close">
+                </button>
+                    <ul class="usa-nav-primary usa-accordion">
+                        <li>
+                            <a class="usa-nav-link" href="/">Home</a>
+                        </li>
+                        <li>
+                            <a class="usa-nav-link" href="/about">About</a>
+                        </li>
+                        <li>
+                            <a class="usa-nav-link" href="https://github.com/OpenPDI/research/releases">Publications</a>
+                        </li>
+                        <li>
+                            <a class="usa-nav-link" href="https://github.com/OpenPDI">GitHub</a>
+                        </li>
+                    </ul>
+                    <div class="usa-nav-secondary">
+                        <ul class="usa-unstyled-list usa-nav-secondary-links">
+                            <li>
+                                <a href="https://github.com/OpenPDI/openpdi.org/milestones">Roadmap</a>
+                            </li>
+                            <li>
+                                <a href="">Donate</a>
+                            </li>
+                            <li>
+                                <a href="mailto:info@openpdi.org">info@openpdi.org</a>
+                            </li>
+                        </ul>
+                    </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="usa-overlay"></div>
+    <div id="hits"></div>
+    <div id="pagination"></div>
+
+    <main id="main-content" id="body">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="usa-footer usa-footer-medium site">
+      <div class="usa-section usa-footer-secondary_section">
+        <div class="usa-grid-full">
+            <div class="usa-width-one-third">
+              <h2>Trust through Transparency</h2>
+            </div>
+          <div class="usa-width-two-thirds footer-content">
+            <p>
+                OpenPDI is an unofficial, open-source effort to document,
+                standardize, and present data on police activity in the U.S.
+            </p>
+            <div class="usa-grid-full footer-contact-links">
+              <div class="usa-width-one-third">
+                <div class="usa-media_block">
+                  <i class="fas fa-info-circle fa-2x usa-media_block-img"></i>
+                  <div class="usa-media_block-body">
+                    <h4>Learn more</h4>
+                    <a href="/about">
+                      About OpenPDI
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="usa-width-one-third">
+                <div class="usa-media_block">
+                  <i class="fas fa-heart fa-2x usa-media_block-img"></i>
+                  <div class="usa-media_block-body">
+                    <h4>Support the project</h4>
+                    <a href="https://chat.18f.gov/">
+                      Donate to our GoFundMe
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="usa-width-one-third">
+                <div class="usa-media_block">
+                  <i class="fas fa-envelope-square fa-2x usa-media_block-img"></i>
+                  <div class="usa-media_block-body">
+                    <h4>Contact us</h4>
+                    <a href="mailto:info@openpdi.org">
+                      Send us an email
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-section-bottom">
+        <div class="usa-grid-full">
+          <p>
+            Made with <a href="https://designsystem.digital.gov/">USWDS</a>,
+            <a href="https://www.highcharts.com/">Highcharts</a> &amp;
+            <a href="https://palletsprojects.com/p/flask/">Flask</a> by @<a href="https://twitter.com/jdkato">jdkato</a>.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    {% assets "js_all" %}
+    <script type="text/javascript" src="{{ ASSET_URL }}"></script>
+    {% endassets %}
+
+    {% block js %} {% endblock %}
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+{
+  "agencies": [
+    {
+      "datasets": [{
+          "index": {},
+          "label": "Incidents",
+          "raw": {
+            "url": "https://goo.gl/yhoLUX"
+          }
+        }],
+      "home": "http://ci.santa-rosa.ca.us/departments/police/Pages/default.aspx",
+      "id": "CA-SRPD",
+      "twitter": "SantaRosaPolice",
+      "name": "Santa Rosa Police Department",
+      "portal": "https://www.policedatainitiative.org/participating-agencies/santa-rosa-california-police/",
+      "topics": [
+      ]
+    }
+  ],
+  "bbox": [
+    -124.4096,
+    32.5343,
+    -114.1308,
+    42.0095
+  ],
+  "center": [
+    -118.2437,
+    34.0522
+  ],
+  "code": "CA",
+  "layers": []
+}

@@ -1,0 +1,35 @@
+{
+  "agencies": [
+    {
+      "datasets": [
+      ],
+      "home": "https://www.portlandoregon.gov/police/",
+      "id": "OR-PPB",
+      "name": "Portland Police Bureau",
+      "portal": "https://www.policedatainitiative.org/participating-agencies/portland-oregon-police/",
+      "topics": [
+        {
+          "label": "Body-Worn Cameras",
+          "url": "https://www.bwcscorecard.org/#portland-police-bureau"
+        },
+        {
+          "label": "Use of Force",
+          "url": "http://www.portlandoregon.gov/police/29867"
+        }
+      ]
+    }
+  ],
+  "bbox": [
+    -124.7,
+    41.99,
+    -116.46,
+    46.3
+  ],
+  "center": [
+    -122.6587,
+    45.5122
+  ],
+  "code": "OR",
+  "layers": [
+  ]
+}

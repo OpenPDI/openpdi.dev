@@ -1,0 +1,208 @@
+{% extends 'layouts/main.html' %}
+
+{% block title %}OpenPDI{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/pages/about.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="usa-grid-full usa-section usa-content usa-layout-docs" id="main-content">
+
+    <aside class="usa-width-one-fourth usa-layout-docs-sidenav">
+        <nav>
+            <ul class="usa-sidenav-list">
+                <li>
+                    <a href="#sec1" class="usa-current">About OpenPDI</a>
+                </li>
+                <li>
+                    <a href="#sec2">What we do</a>
+                </li>
+                <li>
+                    <a href="#sec4">Who maintains this project?</a>
+                </li>
+                <li>
+                    <a href="#sec5">How can I help?</a>
+                </li>
+                <li>
+                    <a href="#sec6">Related work</a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <div class="usa-width-three-fourths usa-layout-docs-main_content">
+        <h1 id="sec1">OpenPDI</h1>
+        <p class="usa-font-lead">
+            OpenPDI is an unofficial, open-source effort to document and
+            standardize police-related data from the U.S.
+        </p>
+
+        <h2 id="sec2">What we do</h2>
+        <p>
+             In May 2015, the White House launched the
+             <a href="https://www.policedatainitiative.org/">Police Data Initiative</a>
+             (PDI) in an effort to improve the relationship between citizens
+             and police by encouraging law enforcement agencies to release data
+             on their interactions with the communities they serve.
+        </p>
+        <blockquote cite="http://www.worldwildlife.org/who/index.html">
+            The Police Data Initiative promotes the use of open data to
+            encourage joint problem solving, innovation, enhanced
+            understanding, and accountability between communities and the law
+            enforcement agencies that serve them.
+        </blockquote>
+        <p>
+            The PDI has largely been a success, with
+            <a href="https://www.policedatainitiative.org/participating-agencies/">more than 130 agencies</a>
+            releasing data on topics including officer-involved shootings,
+            use-of-force incidents, and traffic stops.
+        </p>
+        <p>
+            However, when it comes to actually analyzing and visualizing the
+            data, there are still a few challenges.
+        </p>
+
+        <h3 id="sec2-1">Data standardization</h3>
+        <p>
+            <a href="https://www.policedatainitiative.org/faq/">The PDI provides
+            an index of available data</a>, but doesn't actually collect or
+            maintain the data itself.
+        </p>
+        <blockquote>
+            The agencies participating in this community of practice have
+            chosen to release their data to the public, therefore anyone can
+            collect the data. However, it is important to note that this
+            initiative, the DOJ COPS Office, nor The Police Foundation are
+            collecting this data at the national level.
+        </blockquote>
+        <p>
+            This means that there's significant variation (e.g., file types,
+            column names, and value formats) among the data submitted to the
+            PDI, which makes it difficult to perform analysis between states,
+            agencies, and even years within the same agency.
+        </p>
+        <img src="/static/img/standard.svg" style="width:100%;" alt="Standardization workflow">
+        <p>
+            The OpenPDI project aims to provide access to <i>standardized</i>
+            PDI data via an <a href="https://choosealicense.com/licenses/mit/">MIT-licensed</a>,
+            open-source Python library.
+        </p>
+        <p>
+            See the <a href="https://github.com/OpenPDI/openpdi">GitHub repository</a>
+            for more information.
+        </p>
+
+        <h3 id="sec2-2">Data exploration</h3>
+        <p>
+            While spreadsheet-compatible file types are ideal for data analysis
+            and research, the average person is unlikely to gain much from looking
+            through a 5,000 line CSV file. This makes it difficult for anyone without
+            research or programming experience to explore the available data.
+        </p>
+        <img src="/static/img/frame-firefox-win10.png" style="width:100%;" alt="Example page from openpdi.org">
+        <p>
+            OpenPDI aims to lower the entry barrier to the PDI by using
+            <a href="https://openpdi.org">openpdi.org</a> (this website)
+            as a means for non-technical users to explore the available data.
+            Inspired by projects like the Knight News Challenge-funded
+            <a href="https://censusreporter.org/">Census Reporter</a>, our goal
+            is to be an impartial, easy-to-access source for data on policing
+            in the U.S.
+        </p>
+        <p>
+            For example, check out <a href="https://openpdi.org/states/TX">our page on Texas</a>.
+        </p>
+
+        <h2 id="sec4">Who maintains this project?</h2>
+        <p>
+            Hi, my name is Joseph Kato. I'm a
+            <a href="https://github.com/jdkato">software developer</a>
+            from Portland, Oregon. I maintain a number of open-source projects,
+            including one of the most popular
+            <a href="https://github.com/jdkato/prose">NLP libraries</a> for Go
+            (Google's open-source programming language) and a
+            <a href="https://github.com/errata-ai/vale">linter for prose</a>
+            used by  <a href="https://github.com/linode/docs">Linode</a>,
+            <a href="https://github.com/cockroachdb/docs">CockroachDB</a>,
+            and <a href="https://github.com/alphagov/govuk-developer-docs">GOV.uk</a>
+            (among others).
+        </p>
+        <p></p>
+
+        <h2 id="sec5">How can I help?</h2>
+        <p>
+            The primary way to support the project is by offering financial
+            assistance. OpenPDI is committed to offering 100% free and open-source
+            access to its data and software, but there are number of expenses
+            related to maintaining this project:
+        </p>
+        <ul>
+            <li>
+                Website-related: These costs include third-party integrations
+                (e.g., <a href="https://www.mapbox.com/">MapBox</a>),
+                hosting, and domain name registration.
+            </li>
+            <li>
+                Storage-related: In order to ensure long-term access to our
+                data, we need to store it ourselves (i.e., instead of relying on links
+                to the individual agencies) via a cloud storage service like
+                <a href="https://aws.amazon.com/s3/">AWS</a>.
+            </li>
+            <li>
+                Database-related: In addition to offering access via a Python
+                API, we'd like to provide direct access to an online database using a
+                service like <a href="https://mlab.com/">mLab</a>.
+            </li>
+            <li>
+                Development time: As with most open-source projects, this is a
+                100% volunteer effort.
+            </li>
+        </ul>
+        <p>
+            If this work seems useful or interesting to you, please consider contributing
+            to our active <a href="">GoFundMe campaign</a>. Thanks!
+        </p>
+
+        <h2 id="sec6">Related work</h2>
+        <p>
+            There are a number of projects that have similarities to OpenPDI, but
+            all existing work either differs in scope (e.g., standardizing only traffic stop data)
+            or intent. Below you'll find a brief summary of other notable projects.
+        </p>
+
+        <h3>Center for Policing Equity (CPE)</h3>
+        <p>
+            The <a href="http://policingequity.org/">CPE</a> has a number of
+            similarities with the OpenPDI project&mdash;in particular, we're
+            both interested collecting, standardizing, and storing data on
+            policing in the U.S. That said, there's a major difference between
+            the two projects: <b>data collected by the CPE isn't available to
+            the public.</b>
+        </p>
+
+        <h3>Stanford Open Policing Project</h3>
+        <p>
+            The <a href="https://openpolicing.stanford.edu/">Stanford Open Policing Project</a>
+            has released standardized traffic stop data for nearly every U.S. state.
+        </p>
+        <p>
+            The data is freely available under the <a href="https://opendatacommons.org/licenses/by/summary/">Open Data Commons Attribution</a> license.
+        </p>
+
+        <h3>Fatal shootings database</h3>
+        <p>
+            The Washington Post has attempted to record every fatal officer-involved
+            shooting in the U.S. since 2015.
+        </p>
+        <p>
+            The <a href="https://github.com/washingtonpost/data-police-shootings">data is freely available</a>
+            under the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> license.
+        </p>
+    </div>
+</div>
+{% endblock %}
+
+{% block js %}
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script> -->
+{% endblock %}
