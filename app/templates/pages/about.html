@@ -3,6 +3,7 @@
 {% block title %}OpenPDI{% endblock %}
 
 {% block css %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.css" />
 <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/about.css') }}">
 {% endblock %}
 
@@ -65,7 +66,7 @@
             data, there are still a few challenges.
         </p>
 
-        <h3 id="sec2-1">Data standardization</h3>
+        <h3 id="sec2-1">Data storage</h3>
         <p>
             <a href="https://www.policedatainitiative.org/faq/">The PDI provides
             an index of available data</a>, but doesn't actually collect or
@@ -79,10 +80,24 @@
             collecting this data at the national level.
         </blockquote>
         <p>
-            This means that there's significant variation (e.g., file types,
-            column names, and value formats) among the data submitted to the
-            PDI, which makes it difficult to perform analysis between states,
-            agencies, and even years within the same agency.
+            This means that, in many cases, the long-term availability of data
+            is dependent on a particular agency maintaining links to data stored
+            on their own servers.
+        </p>
+        <p>
+            The OpenPDI project aims to address the potential issues with this
+            practice by collecting and storing the data via the publicly-accessible
+            <a href="https://dev.socrata.com/">Socrata Open Data Publisher API</a>.
+        </p>
+
+        <h3 id="sec2-2">Data standardization</h3>
+        <p>
+            Since the PDI merely provides links to external data sources,
+            there are no formatting requirements. This means that
+            there's significant variation within the datasets submitted to the PDI
+            (e.g., file types, column names, and value formats), which makes it
+            difficult to perform analysis between states, agencies, and even
+            years within the same agency.
         </p>
         <img src="/static/img/standard.svg" style="width:100%;" alt="Standardization workflow">
         <p>
@@ -95,14 +110,14 @@
             for more information.
         </p>
 
-        <h3 id="sec2-2">Data exploration</h3>
+        <h3 id="sec2-3">Data exploration</h3>
         <p>
             While spreadsheet-compatible file types are ideal for data analysis
             and research, the average person is unlikely to gain much from looking
             through a 5,000 line CSV file. This makes it difficult for anyone without
             research or programming experience to explore the available data.
         </p>
-        <img src="/static/img/frame-firefox-win10.png" style="width:100%;" alt="Example page from openpdi.org">
+        <a data-fancybox="gallery" href="/static/img/frame-firefox-win10.png"><img src="/static/img/frame-firefox-win10.png" alt="Example page from openpdi.org" style="width:100%"></a>
         <p>
             OpenPDI aims to lower the entry barrier to the PDI by using
             <a href="https://openpdi.org">openpdi.org</a> (this website)
@@ -208,5 +223,5 @@
 {% endblock %}
 
 {% block js %}
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script> -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.js"></script>
 {% endblock %}
