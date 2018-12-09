@@ -1,0 +1,8 @@
+language: python
+python: 2.7.15
+install:
+  - pip install LinkChecker
+  - curl -sfL https://install.goreleaser.com/github.com/ValeLint/vale.sh | sh
+script:
+  - ./bin/vale app/templates/pages
+  - linkchecker https://openpdi.org/
