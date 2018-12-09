@@ -40,6 +40,14 @@ blockquote p {
 
 /* USWDS  Adjustments */
 
+.usa-hero {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  background-image: url("../img/graphic-bg-city.svg");
+  background-position: center;
+  background-size: cover;
+}
+
 .usa-section-secondary {
     background-color: #f1f1f1;
 }
