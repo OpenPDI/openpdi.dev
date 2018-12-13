@@ -1,4 +1,50 @@
-/*! uswds v1.6.9 */
+.usa-search {
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+.usa-search[type="search"] {
+    -webkit-appearance: textfield;
+    box-sizing: content-box;
+}
+@media screen and (min-width: 481px)
+ .usa-search-input {
+    width: calc(100% - 8.5rem);
+}
+ .usa-search-input {
+    padding-top: 0;
+    padding-bottom: 0;
+    border-bottom-right-radius: 0;
+    border-right: none;
+    border-top-right-radius: 0;
+    box-sizing: border-box;
+    float: left;
+    font-size: 1.4rem;
+    height: 3.3rem;
+    margin: 0;
+    width: calc(100% - 4.5rem);
+}
+.usa-search {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: .1rem solid #5b616b;
+    border-radius: 0;
+    box-sizing: border-box;
+    color: #212121;
+    display: block;
+    font-size: 1.7rem;
+    height: 4.4rem;
+    line-height: 1.3;
+    margin: .2em 0;
+    max-width: 46rem;
+    padding: 1rem .7em;
+    width: 100%;
+}
+.usa-search {
+    line-height: normal;
+}/*! uswds v1.6.9 */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 /**
  * 1. Set default font family to sans-serif.
@@ -226,7 +272,7 @@ samp {
  * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
  */
 button,
-input,
+.usa-search,
 optgroup,
 select,
 textarea {
@@ -252,7 +298,7 @@ button {
  * Correct `select` style inheritance in Firefox.
  */
 button,
-select {
+ {
   text-transform: none;
 }
 
@@ -265,8 +311,8 @@ select {
  */
 button,
 html input[type="button"],
-input[type="reset"],
-input[type="submit"] {
+.usa-search[type="reset"],
+.usa-search[type="submit"] {
   -webkit-appearance: button;
   /* 2 */
   cursor: pointer;
@@ -285,7 +331,7 @@ html input[disabled] {
  * Remove inner padding and border in Firefox 4+.
  */
 button::-moz-focus-inner,
-input::-moz-focus-inner {
+.usa-search::-moz-focus-inner {
   border: 0;
   padding: 0;
 }
@@ -294,7 +340,7 @@ input::-moz-focus-inner {
  * Address Firefox 4+ setting `line-height` on `input` using `!important` in
  * the UA stylesheet.
  */
-input {
+.usa-search {
   line-height: normal;
 }
 
@@ -305,8 +351,8 @@ input {
  * 1. Address box sizing set to `content-box` in IE 8/9/10.
  * 2. Remove excess padding in IE 8/9/10.
  */
-input[type="checkbox"],
-input[type="radio"] {
+.usa-search[type="checkbox"],
+.usa-search[type="radio"] {
   box-sizing: border-box;
   /* 1 */
   padding: 0;
@@ -318,8 +364,8 @@ input[type="radio"] {
  * `font-size` values of the `input`, it causes the cursor style of the
  * decrement button to change from `default` to `text`.
  */
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
+.usa-search[type="number"]::-webkit-inner-spin-button,
+.usa-search[type="number"]::-webkit-outer-spin-button {
   height: auto;
 }
 
@@ -327,7 +373,7 @@ input[type="number"]::-webkit-outer-spin-button {
  * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
  * 2. Address `box-sizing` set to `border-box` in Safari and Chrome.
  */
-input[type="search"] {
+.usa-search[type="search"] {
   -webkit-appearance: textfield;
   /* 1 */
   box-sizing: content-box;
@@ -339,8 +385,8 @@ input[type="search"] {
  * Safari (but not Chrome) clips the cancel button when the search input has
  * padding (and `textfield` appearance).
  */
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-decoration {
+.usa-search[type="search"]::-webkit-search-cancel-button,
+.usa-search[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
@@ -1405,9 +1451,9 @@ img {
 }
 
 /* stylelint-disable selector-no-qualifying-type */
-input,
+.usa-search,
 textarea,
-select {
+ {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -1425,7 +1471,7 @@ select {
   width: 100%;
 }
 
-input.usa-input-success,
+.usa-search.usa-input-success,
 textarea.usa-input-success,
 select.usa-input-success {
   border: 3px solid #4aa564;
@@ -1444,7 +1490,7 @@ select.usa-input-success {
 
 .usa-input-error input,
 .usa-input-error textarea,
-.usa-input-error select {
+.usa-input-error  {
   border: 3px solid #cd2026;
   width: calc(100% + 1.9rem);
 }
@@ -1505,7 +1551,7 @@ textarea {
   height: 16rem;
 }
 
-select {
+ {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -3451,7 +3497,7 @@ fieldset {
   margin-bottom: 3rem;
 }
 
-.usa-input-grid-small select {
+.usa-input-grid-small  {
   margin-bottom: 3rem;
 }
 
@@ -3466,7 +3512,7 @@ fieldset {
   margin-bottom: 3rem;
 }
 
-.usa-input-grid-medium select {
+.usa-input-grid-medium  {
   margin-bottom: 3rem;
 }
 
@@ -3481,7 +3527,7 @@ fieldset {
   margin-bottom: 3rem;
 }
 
-.usa-input-grid-large select {
+.usa-input-grid-large  {
   margin-bottom: 3rem;
 }
 
@@ -4629,7 +4675,7 @@ fieldset {
 }
 
 @media screen and (min-width: 481px) {
-  .usa-search.usa-search-big [type=search],
+  .usa-search.usa-search-big
   .usa-search.usa-search-big .usa-search-input {
     font-size: 1.7rem;
     height: 4.4rem;
@@ -4644,7 +4690,7 @@ fieldset {
 }
 
 @media screen and (min-width: 481px) {
-  .usa-search.usa-search-small [type=search],
+  .usa-search.usa-search-small
   .usa-search.usa-search-small .usa-search-input {
     width: calc(100% - 4.5rem);
   }
@@ -4665,7 +4711,7 @@ fieldset {
   }
 }
 
-input[type=search] {
+.usa-search {
   /* stylelint-disable-line selector-no-qualifying-type */
   box-sizing: border-box;
   -webkit-appearance: none;
@@ -4673,7 +4719,7 @@ input[type=search] {
   appearance: none;
 }
 
-[type=search],
+
 .usa-search-input {
   padding-top: 0;
   padding-bottom: 0;
@@ -4689,7 +4735,7 @@ input[type=search] {
 }
 
 @media screen and (min-width: 481px) {
-  [type=search],
+
   .usa-search-input {
     width: calc(100% - 8.5rem);
   }

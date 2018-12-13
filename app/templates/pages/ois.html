@@ -1,0 +1,170 @@
+{% extends 'layouts/main.html' %}
+{% block title %}OpenPDI: Officer-involved shootings{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.3/awesomplete.min.css" />
+
+<!-- <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css" /> -->
+<!-- <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.3.0/mapbox-gl-geocoder.css" type='text/css' /> -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/pages/state.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<!--
+<div id="map-header">
+    <div id="traffic"></div>
+    <div class="map-overlay" id="legend"></div>
+</div>-->
+
+<section class="usa-section">
+    <div class="usa-grid-full">
+        <h1 id="state-title">
+            Fatal officer-involved shootings
+            <span class="tag is-light is-large align-center">Updated: {{ updated }}</span>
+        </h1>
+        <div class="usa-alert usa-alert-info" >
+          <div class="usa-alert-body">
+            <h3 class="usa-alert-heading">Definition</h3>
+            <p class="usa-alert-text">
+                An <i>officer-involved shooting</i> (OIS) may be defined as the
+                discharge of a firearm, which may include accidental and
+                intentional discharges, by a police officer, whether on- or off-duty.
+                <sup><a href="https://www.policedatainitiative.org/datasets/officer-involved-shootings/">[1]</a></sup>
+            </p>
+          </div>
+        </div>
+        <p class="balance-text">
+            In 2015, The Washington Post began maintaining a
+            <a href="https://github.com/washingtonpost/data-police-shootings">database</a>
+            of every <i>fatal</i> officer-involved shooting in the United
+            States. The database includes the race of the subject involved, the
+            date of the shooting, and the city in which it occurred
+            (among other details).
+        </p>
+        <p>
+          Click "Search the database" below to browse the raw data, as recorded
+          by The Washington Post.
+        </p>
+        <ul class="usa-accordion-bordered">
+          <li>
+            <button class="usa-accordion-button"
+              aria-expanded="false"
+              aria-controls="b-a1">
+              Search the database
+            </button>
+            <div id="b-a1" class="usa-accordion-content">
+              <table id="database" class="usa-table-borderless" style="width:100%;">
+                  <thead>
+                    <tr>
+                        <th>DATE</th>
+                        <th>NAME</th>
+                        <th>AGE</th>
+                        <th>SEX</th>
+                        <th>RACE</th>
+                        <th>STATE</th>
+                        <th>ARMED</th>
+                        <th>FLEEING</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                  <tr>
+                    <th>DATE</th>
+                    <th>NAME</th>
+                    <th>AGE</th>
+                    <th>SEX</th>
+                    <th>RACE</th>
+                    <th>STATE</th>
+                    <th>ARMED</th>
+                    <th>FLEEING</th>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          </li>
+        </ul>
+    </div>
+    <div class="usa-grid-full usa-grid-padded">
+        <div id="summary" class="usa-width-one-half"></div>
+        <div id="heat-tiles" class="usa-width-one-half"></div>
+    </div>
+    <div class="usa-grid-full">
+      <h2 id="state-label">By state (Alaska)</h2>
+        <p>
+            The map below indicates the number of shootings that have occurred in each
+            county, while the pie chart gives the number of shootings involving
+            certain races and ethnicities (Hispanic includes respondents of any
+            race; other categories are non-Hispanic).
+        </p>
+        <p>
+          Enter a state's name below to update the charts.
+        </p>
+        <form>
+            <input id="state-search" class="awesomplete usa-search input" placeholder="Seach for a state ..." type="text" />
+        </form>
+        <div class="usa-width-one-half usa-grid-padded">
+          <div id="map"></div>
+        </div>
+        <div class="usa-width-one-half usa-grid-padded">
+          <div id="pie"></div>
+        </div>
+
+    </div>
+    <div class="usa-grid-full">
+        <p>
+          You can explore demographic statistics the state as a whole via The
+          U.S. Census Bureau's
+          <a id="census-url" href="https://www.census.gov/quickfacts/ak">QuickFacts, Alaska</a> page.
+          The chart below gives the distribution of weapons used by race and ethnicity.
+        </p>
+        <div id="demo"></div>
+        <p>
+            You can find more information, including the original sources for
+            each incident, at The Washington Post's
+            <a href="https://www.washingtonpost.com/graphics/2018/national/police-shootings-2018/">yearly report</a>.
+        </p>
+    </div>
+</section>
+{% endblock %}
+{% block js %}
+<!-- <script src='https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.js'></script> -->
+<!-- <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.3.0/mapbox-gl-geocoder.min.js'></script> -->
+<!-- <script src="{{ url_for('static', filename='js/state/traffic.js') }}"></script> -->
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/heatmap.js"></script>
+<script src="https://code.highcharts.com/modules/tilemap.js"></script>
+
+<script src="//code.highcharts.com/maps/modules/map.js"></script>
+{% for state in states %}
+    <script src="https://code.highcharts.com/mapdata/countries/us/us-{{ state.lower() }}-all.js"></script>
+{% endfor %}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.3/awesomplete.min.js"></script>
+<script src="{{ url_for('static', filename='js/ois/autocomplete.js') }}"></script>
+
+<script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
+
+<script src="{{ url_for('static', filename='js/ois/data.js') }}"></script>
+<script src="{{ url_for('static', filename='js/ois/table.js') }}"></script>
+<script src="{{ url_for('static', filename='js/ois/chart.js') }}"></script>
+
+<script type="text/javascript">
+    // National-level charts
+    shootings_by_1m (by_1_mil, 2017)
+    shootings_by_1m_race(by_1_mil_race)
+
+    // State-level charts (see js/ois/autocomplete.js)
+    //
+    // TODO: Detect user's home state?
+    shootings_by_county_map ('ak', by_county['AK'])
+    shootings_by_race_chart (by_race['AK'])
+    shootings_by_weapon_chart (by_weapon_race['AK'])
+</script>
+{% endblock %}

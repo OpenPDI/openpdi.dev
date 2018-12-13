@@ -10,7 +10,6 @@ cssmin = "*"
 jsmin = "*"
 ujson = "*"
 gunicorn = "*"
-algoliasearch = "*"
 "jinja2-highlight" = "*"
 
 [dev-packages]
@@ -23,6 +22,7 @@ geopy = "*"
 wikipedia = "*"
 requests = "*"
 pandas = "*"
+tablib = "*"
 
 [requires]
 python_version = "3.7"

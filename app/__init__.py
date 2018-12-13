@@ -1,3 +1,4 @@
+import datetime
 import os
 
 import jinja2_highlight
@@ -5,6 +6,8 @@ import ujson
 
 from flask import Flask, render_template
 from flask_assets import Environment, Bundle
+
+STATES = [s for s in os.listdir(os.path.join("app", "data", "states")) if len(s) == 2]
 
 
 class MyFlask(Flask):
@@ -22,10 +25,6 @@ def read_json(path):
     """
     with open(os.path.join("app", "data", path)) as f:
         return ujson.load(f)
-
-
-SHOOTINGS_BY_COUNTY = read_json("shootings_by_county.json")
-SHOOTINGS_VS_NATION = read_json("shootings_vs_nation.json")
 
 
 @app.route("/")
@@ -56,42 +55,18 @@ def state_entry():
     return render_template("pages/state-entry.html")
 
 
-@app.route("/states/<code>")
-def state(code):
-    """Render a state-specific page.
-
-    `code` is a two-letter state code -- e.g., "TX" for Texas.
+@app.route("/ois")
+def ois():
+    """Render the officer-involved shootings page.
     """
-    meta = read_json("states/{0}/meta.json".format(code))
-
-    # Calculate the occurrences of each weapon type within each race:
-    #
-    # TODO: Pre-compute this?
-    history = read_json("weapons_by_race.json")[code]
-    cats = ["Asian", "Black", "Hispanic", "Native American", "White", "Other"]
-    by_weapon = {}
-    for weapon in history:
-        by_weapon[weapon] = [history[weapon][k] for k in cats]
-
-    # Get the number of shootings for each race:
-    by_race = read_json("shootings_by_race.json")[code]
-    by_fips = read_json("shootings_by_fips.json")[code]
-
-    # Get the pre-computed shootings stats:
-    by_county, by_year = SHOOTINGS_BY_COUNTY[code], SHOOTINGS_VS_NATION[code]
-
-    # Get the national average:
-    nation = SHOOTINGS_VS_NATION["nat"]
+    # Find the last time we updated our data:
+    pt = os.path.join("app", "static", "js", "ois", "data.js")
+    ts = os.path.getmtime(pt)
 
     return render_template(
-        "pages/state.html",
-        state_meta=meta,
-        by_county=by_county,
-        by_weapon=by_weapon,
-        by_race=by_race,
-        by_fips=list(by_fips.items()),
-        by_year=[by_year[k] for k in sorted(by_year)],
-        nation_by_year=[nation[k] for k in sorted(nation)],
+        "pages/ois.html",
+        states=STATES,
+        updated=datetime.datetime.utcfromtimestamp(ts).strftime("%m-%d-%Y"),
     )
 
 
@@ -127,10 +102,7 @@ js = Bundle(
 assets.register("js_all", js)
 
 css = Bundle(
-    "css/uswds.css",
-    "css/code.css",
-    filters="cssmin",
-    output="css/lib.min.css",
+    "css/uswds.css", "css/code.css", filters="cssmin", output="css/lib.min.css"
 )
 
 assets.register("css_all", css)
