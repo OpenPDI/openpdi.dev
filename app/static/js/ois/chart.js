@@ -1,14 +1,3 @@
-if (!Object.entries) {
-  Object.entries = function (obj) {
-    var ownProps = Object.keys(obj),
-      i = ownProps.length,
-      resArray = new Array(i) // preallocate the Array
-    while (i--) { resArray[i] = [ownProps[i], obj[ownProps[i]]] }
-
-    return resArray
-  }
-}
-
 Highcharts.setOptions({
   colors: [
     '#9bdaf1', '#002F50', '#02BFE7', '#0098BF', '#007398', '#005073'

@@ -96,6 +96,7 @@ assets = Environment(app)
 js = Bundle(
     "js/lib/jquery.min.js",
     "js/lib/uswds.min.js",
+    "js/polyfills.js",
     filters="jsmin",
     output="js/lib.min.js",
 )
