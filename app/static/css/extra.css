@@ -40,6 +40,16 @@ blockquote p {
 
 /* USWDS  Adjustments */
 
+.usa-header {
+  background-color: #112e51;
+  color: #fff;
+}
+
+.usa-logo a, .usa-nav-secondary-links a {
+    color: #fff;
+    text-decoration: none;
+}
+
 .usa-hero {
   padding-top: 3rem;
   padding-bottom: 3rem;
