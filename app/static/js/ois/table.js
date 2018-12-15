@@ -3,7 +3,6 @@ var database = $('#database').DataTable({
   responsive: true,
   scrollY: '300px',
   scrollCollapse: true,
-  searching: false,
   pageLength: 50,
   lengthChange: false,
   order: [[ 0, 'desc' ]],
