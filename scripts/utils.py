@@ -11,21 +11,28 @@ def write_js(path, variables):
     """
     with open(os.path.join("app", "static", "js", path, "data.js"), "w+") as f:
         for var in variables:
-            f.write("var {0} = {1};\n".format(var[0], ujson.dumps(var[1])))
+            if hasattr(var[1], "to_json"):
+                data = var[1].to_json()
+            else:
+                data = ujson.dumps(var[1])
+            f.write("var {0} = {1};\n".format(var[0], data))
 
 
 def read_json(path):
     """Read and return the given JSON file.
     """
-    with open(os.path.join("app", "data", path)) as f:
+    with open(os.path.join("app", "static", "data", path)) as f:
         return ujson.load(f)
 
 
-def write_json(path, data):
+def write_json(path, data, parse=True):
     """Write the given JSON to the given file.
     """
-    with open(os.path.join("app", "data", path), "w+") as f:
-        ujson.dump(data, f)
+    with open(os.path.join("app", "static", "data", path), "w+") as f:
+        if parse:
+            ujson.dump(data, f)
+        else:
+            f.write(data)
 
 
 def read_csv(text, start):

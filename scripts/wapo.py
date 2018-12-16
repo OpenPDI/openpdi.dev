@@ -118,7 +118,7 @@ with requests.get(REPO + BLOB, stream=True) as r:
             by_weapon_race[state][weapon] = [history[weapon][k] for k in cats]
 
     write_js(
-        "state",
+        "ois",
         [
             ("by_weapon_race", by_weapon_race),
             ("by_race", by_state_race),

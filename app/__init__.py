@@ -7,7 +7,7 @@ import ujson
 from flask import Flask, render_template
 from flask_assets import Environment, Bundle
 
-STATES = [s for s in os.listdir(os.path.join("app", "data", "states")) if len(s) == 2]
+STATES = [s for s in os.listdir("app/static/data/states") if len(s) == 2]
 
 
 class MyFlask(Flask):
@@ -23,7 +23,7 @@ app = MyFlask(__name__)
 def read_json(path):
     """Read and return the given JSON file.
     """
-    with open(os.path.join("app", "data", path)) as f:
+    with open(os.path.join("app", "static", "data", path)) as f:
         return ujson.load(f)
 
 
@@ -41,33 +41,35 @@ def about():
     return render_template("pages/about.html")
 
 
-@app.route("/national")
-def national():
-    """Render the national page.
-    """
-    return render_template("pages/national.html")
+@app.route("/uof")
+def uof():
+    """Render the Use of Force page.
 
-
-@app.route("/state-entry")
-def state_entry():
-    """Render the state-entry page.
+    This page uses data collected and hosted by The OpenPDI project -- see
+    `scripts/uof.py` for more information on how we process the data.
     """
-    return render_template("pages/state-entry.html")
+    pt = os.path.join("app", "static", "js", "uof", "data.js")
+    ts = os.path.getmtime(pt)
+    dt = datetime.datetime.utcfromtimestamp(ts).strftime("%m-%d-%Y")
+
+    meta = read_json("uof-meta.json")
+    return render_template("pages/uof.html",
+        updated=dt,
+        total=meta["total"],
+        freqs=meta["cat_freqs"])
 
 
 @app.route("/ois")
 def ois():
     """Render the officer-involved shootings page.
+
+    This page uses data collected and hosted by The Washington Post -- see
+    `scripts/wapo.py` for more information on how we process the data.
     """
-    # Find the last time we updated our data:
     pt = os.path.join("app", "static", "js", "ois", "data.js")
     ts = os.path.getmtime(pt)
-
-    return render_template(
-        "pages/ois.html",
-        states=STATES,
-        updated=datetime.datetime.utcfromtimestamp(ts).strftime("%m-%d-%Y"),
-    )
+    dt = datetime.datetime.utcfromtimestamp(ts).strftime("%m-%d-%Y")
+    return render_template("pages/ois.html", states=STATES, updated=dt)
 
 
 @app.route("/agencies/<name>")

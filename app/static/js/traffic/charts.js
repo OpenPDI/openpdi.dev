@@ -1,16 +1,3 @@
-var animDuration = 1517
-var animated = false
-
-Highcharts.setOptions({
-  colors: [
-    '#046b99', '#0081a3', '#0095a2', '#02a89a', '#57b98d', '#8ec780'
-  ],
-  credits: false,
-  lang: {
-    thousandsSep: ','
-  }
-})
-
 Highcharts.chart('traffic', {
   chart: {
     animation: {
@@ -223,55 +210,5 @@ Highcharts.chart('days', {
       y: 4579396,
       color: '#c4d27a'
     }]
-  }]
-})
-
-Highcharts.chart('uof-group', {
-  chart: {
-    type: 'column'
-  },
-  title: {
-    text: 'Force Type by Reason'
-  },
-  subtitle: {
-    text: 'Click on a label (e.g., "Physical") below to filter it from the chart.'
-  },
-  xAxis: {
-    categories: ['Resistance', 'Active Aggression', 'Non-compliance', 'Fleeing', 'Weapon Display', 'Other']
-  },
-  yAxis: {
-    min: 0,
-    title: {
-      text: 'Total Force Composition'
-    }
-  },
-  tooltip: {
-    pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b> ({point.percentage:.0f}%)<br/>',
-    shared: true
-  },
-  plotOptions: {
-    column: {
-      stacking: 'percent'
-    }
-  },
-  // 'Resistance', 'Active Aggression', 'Non-compliance', 'Fleeing', 'Weapon Display', 'Other'
-  series: [{
-    name: 'Physical',
-    data: [4328, 3623, 23, 26, 133, 1166]
-  }, {
-    name: 'Chemical',
-    data: [119, 147, 7, 3, 1, 26]
-  }, {
-    name: 'Firearm',
-    data: [251, 223, 10, 10, 103, 109]
-  }, {
-    name: 'Electronic',
-    data: [222, 319, 3, 11, 28, 60]
-  }, {
-    name: 'Impact',
-    data: [42, 47, 6, 2, 1, 8]
-  }, {
-    name: 'Canine',
-    data: [3, 1, 2, 4, 1, 1]
   }]
 })

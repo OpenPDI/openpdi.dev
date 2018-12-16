@@ -23,6 +23,7 @@ wikipedia = "*"
 requests = "*"
 pandas = "*"
 tablib = "*"
+openpdi = "*"
 
 [requires]
 python_version = "3.7"
