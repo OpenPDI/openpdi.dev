@@ -138,20 +138,11 @@
 <script src="https://code.highcharts.com/modules/tilemap.js"></script>
 
 <script src="//code.highcharts.com/maps/modules/map.js"></script>
-{% for state in states %}
-    {% if state == 'AK' %}
-        <script src="https://code.highcharts.com/mapdata/countries/us/us-{{ state.lower() }}-all.js"></script>
-    {% else %}
-        <script src="https://code.highcharts.com/mapdata/countries/us/us-{{ state.lower() }}-all.js" async></script>
-    {% endif %}
-{% endfor %}
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.3/awesomplete.min.js"></script>
-<script src="{{ url_for('static', filename='js/ois/autocomplete.js') }}"></script>
 
 <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
 
+<script src="https://code.highcharts.com/mapdata/countries/us/us-ak-all.js"></script>
 <script src="{{ url_for('static', filename='js/ois/data.js') }}"></script>
 <script src="{{ url_for('static', filename='js/ois/table.js') }}"></script>
 <script src="{{ url_for('static', filename='js/ois/chart.js') }}"></script>
@@ -168,4 +159,14 @@
     shootings_by_race_chart (by_race['AK'])
     shootings_by_weapon_chart (by_weapon_race['AK'])
 </script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.3/awesomplete.min.js"></script>
+<script src="{{ url_for('static', filename='js/ois/autocomplete.js') }}"></script>
+
+{% for state in states %}
+    {% if state != 'AK' %}
+        <script src="https://code.highcharts.com/mapdata/countries/us/us-{{ state.lower() }}-all.js" async></script>
+    {% endif %}
+{% endfor %}
+
 {% endblock %}
