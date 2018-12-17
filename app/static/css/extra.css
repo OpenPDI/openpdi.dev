@@ -45,9 +45,16 @@ blockquote p {
   color: #fff;
 }
 
-.usa-logo a, .usa-nav-secondary-links a {
+.usa-logo a {
     color: #fff;
     text-decoration: none;
+  }
+
+@media (min-width: 951px) {
+  .usa-nav-secondary-links a {
+    color: #fff;
+    text-decoration: none;
+  }
 }
 
 .usa-hero {
