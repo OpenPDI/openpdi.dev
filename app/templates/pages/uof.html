@@ -3,7 +3,7 @@
 {% block title %}OpenPDI: Use of Force{% endblock %}
 
 {% block css %}
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.css" />
+<link rel="stylesheet" href="{{ url_for('static', filename='vendor/FancyBox/jquery.fancybox.min.css') }}" />
 {% endblock %}
 
 {% block content %}
@@ -116,11 +116,10 @@
   $SCRIPT_ROOT={{ request.script_root|tojson|safe }};
 </script>
 
-<script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/modules/drilldown.js"></script>
+<script src="{{ url_for('static', filename='vendor/FancyBox/jquery.fancybox.min.js') }}"></script>
+<script src="{{ url_for('static', filename='vendor/Highcharts/highcharts.min.js') }}"></script>
+<script src="{{ url_for('static', filename='vendor/Highcharts/drilldown.min.js') }}"></script>
 
 <script src="{{ url_for('static', filename='js/uof/data.js') }}"></script>
 <script src="{{ url_for('static', filename='js/uof/charts.js') }}"></script>
-
-<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.js"></script>
 {% endblock %}

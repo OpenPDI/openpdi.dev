@@ -2,9 +2,9 @@
 {% block title %}OpenPDI: Officer-involved shootings{% endblock %}
 
 {% block css %}
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
-<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.3/awesomplete.min.css" />
+<link rel="stylesheet" href="{{ url_for('static', filename='vendor/DataTables/jquery.dataTables.min.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='vendor/DataTables/responsive.dataTables.min.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='vendor/Awesomplete/awesomplete.min.css') }}" />
 
 <!-- <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css" /> -->
 <!-- <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.3.0/mapbox-gl-geocoder.css" type='text/css' /> -->
@@ -133,14 +133,14 @@
 <!-- <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.3.0/mapbox-gl-geocoder.min.js'></script> -->
 <!-- <script src="{{ url_for('static', filename='js/state/traffic.js') }}"></script> -->
 
-<script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/modules/heatmap.js"></script>
-<script src="https://code.highcharts.com/modules/tilemap.js"></script>
+<script src="{{ url_for('static', filename='vendor/Highcharts/highcharts.min.js') }}"></script>
+<script src="{{ url_for('static', filename='vendor/Highcharts/heatmap.min.js') }}"></script>
+<script src="{{ url_for('static', filename='vendor/Highcharts/tilemap.min.js') }}"></script>
 
-<script src="//code.highcharts.com/maps/modules/map.js"></script>
+<script src="{{ url_for('static', filename='vendor/Highcharts/map.min.js') }}"></script>
 
-<script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+<script src="{{ url_for('static', filename='vendor/DataTables/jquery.dataTables.min.js') }}"></script>
+<script src="{{ url_for('static', filename='vendor/DataTables/dataTables.responsive.min.js') }}"></script>
 
 <script src="https://code.highcharts.com/mapdata/countries/us/us-ak-all.js"></script>
 <script src="{{ url_for('static', filename='js/ois/data.js') }}"></script>
@@ -160,7 +160,7 @@
     shootings_by_weapon_chart (by_weapon_race['AK'])
 </script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.3/awesomplete.min.js"></script>
+<script src="{{ url_for('static', filename='vendor/Awesomplete/awesomplete.min.js') }}"></script>
 <script src="{{ url_for('static', filename='js/ois/autocomplete.js') }}"></script>
 
 {% for state in states %}

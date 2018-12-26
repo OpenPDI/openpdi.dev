@@ -5,7 +5,7 @@ venv
 .webassets-cache*
 
 lib.min.js
-uswds.css
+lib.min.css
 
 # Server administration
 sftp-config.json
