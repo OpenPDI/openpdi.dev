@@ -144,13 +144,12 @@
 
 <script src="https://code.highcharts.com/mapdata/countries/us/us-ak-all.js"></script>
 <script src="{{ url_for('static', filename='js/ois/data.js') }}"></script>
-<script src="{{ url_for('static', filename='js/ois/table.js') }}"></script>
 <script src="{{ url_for('static', filename='js/ois/chart.js') }}"></script>
 
 <script type="text/javascript">
     // National-level charts
-    shootings_by_1m (by_1_mil, 2017)
     shootings_by_1m_race(by_1_mil_race)
+    shootings_by_1m (by_1_mil, 2017)
 
     // State-level charts (see js/ois/autocomplete.js)
     //
@@ -162,6 +161,8 @@
 
 <script src="{{ url_for('static', filename='vendor/Awesomplete/awesomplete.min.js') }}"></script>
 <script src="{{ url_for('static', filename='js/ois/autocomplete.js') }}"></script>
+
+<script src="{{ url_for('static', filename='js/ois/table.js') }}" async></script>
 
 {% for state in states %}
     {% if state != 'AK' %}

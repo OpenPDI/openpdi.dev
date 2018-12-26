@@ -672,6 +672,7 @@ function shootings_by_1m_race (counts) {
     },
     plotOptions: {
       bar: {
+        animation: false,
         dataLabels: {
           enabled: true
         }
