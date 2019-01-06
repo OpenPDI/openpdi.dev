@@ -59,7 +59,6 @@ for state in by_state_race:
 
 # Fetch the latest version of the database from GitHub:
 with requests.get(REPO + BLOB, stream=True) as r:
-    database = []
     for row in csv.DictReader(codecs.iterdecode(r.iter_lines(), "utf-8")):
         city, state, year = row["city"], row["state"], row["date"].split("-")[0]
 
@@ -95,8 +94,6 @@ with requests.get(REPO + BLOB, stream=True) as r:
             # FIXME: Add manually?
             print("Skipping", query)
 
-        database.append(row)
-
     # Calculate the per 1 million averages:
     for state, pops in STATE_POPS.items():
         for year, total in totals_by_year[state].items():
@@ -124,7 +121,6 @@ with requests.get(REPO + BLOB, stream=True) as r:
             ("by_race", by_state_race),
             ("by_county", by_fips),
             ("by_1_mil", totals_by_year),
-            ("by_1_mil_race", totals_by_race),
-            ("wapo_db", database),
+            ("by_1_mil_race", totals_by_race)
         ],
     )

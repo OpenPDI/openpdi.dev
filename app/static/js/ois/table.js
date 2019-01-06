@@ -1,15 +1,13 @@
 $.fn.dataTable.ext.classes.sPageButton = 'button is-medium'
 var database = $('#database').DataTable({
   responsive: true,
-  scrollY: '300px',
-  scrollCollapse: true,
-  pageLength: 50,
+  pageLength: 5,
   lengthChange: false,
   order: [[ 0, 'desc' ]],
   language: {
     'zeroRecords': 'No matching records found.'
   },
-  data: wapo_db,
+  ajax: $SCRIPT_ROOT + '/_shootings',
   columns: [
     { 'data': 'date' },
     { 'data': 'name' },
@@ -32,27 +30,4 @@ var database = $('#database').DataTable({
     { type: 'date', targets: 0 },
     { type: 'num', targets: 2 }
   ]
-  /* dom: 'lfrtip',
-  buttons: [
-    {
-      extend: 'csvHtml5',
-      text: 'Export as CSV',
-      className: 'button is-medium is-rounded is-light'
-    },
-    {
-      extend: 'pdfHtml5',
-      text: 'Export as PDF',
-      className: 'button is-medium is-rounded is-light'
-    }
-  ],
-  'oTableTools': {
-    'aButtons': [
-      {'sExtends': 'csv',
-        'oSelectorOpts': { filter: 'applied', order: 'current' }
-      },
-      {'sExtends': 'pdf',
-        'oSelectorOpts': { filter: 'applied', order: 'current' }
-      }
-    ]
-  } */
 })

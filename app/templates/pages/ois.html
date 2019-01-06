@@ -50,13 +50,13 @@
         </p>
         <ul class="usa-accordion-bordered">
           <li>
-            <button class="usa-accordion-button"
+            <button class="usa-accordion-button" id="show-db"
               aria-expanded="false"
               aria-controls="b-a1">
               Search the database
             </button>
             <div id="b-a1" class="usa-accordion-content">
-              <table id="database" class="usa-table-borderless">
+              <table id="database" class="usa-table-borderless" style="width:100%">
                   <thead>
                     <tr>
                         <th>DATE</th>
@@ -129,6 +129,10 @@
 </section>
 {% endblock %}
 {% block js %}
+<script type=text/javascript>
+  $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+</script>
+
 <!-- <script src='https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.js'></script> -->
 <!-- <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.3.0/mapbox-gl-geocoder.min.js'></script> -->
 <!-- <script src="{{ url_for('static', filename='js/state/traffic.js') }}"></script> -->

@@ -1,23 +1,17 @@
+import codecs
+import csv
 import datetime
 import os
 
-import jinja2_highlight
+import requests
 import ujson
+import us
 
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify
 from flask_assets import Environment, Bundle
 
-STATES = [s for s in os.listdir("app/static/data/states") if len(s) == 2]
 
-
-class MyFlask(Flask):
-    jinja_options = dict(Flask.jinja_options)
-    jinja_options.setdefault("extensions", []).append(
-        "jinja2_highlight.HighlightExtension"
-    )
-
-
-app = MyFlask(__name__)
+app = Flask(__name__)
 
 
 def read_json(path):
@@ -25,6 +19,19 @@ def read_json(path):
     """
     with open(os.path.join("app", "static", "data", path)) as f:
         return ujson.load(f)
+
+
+@app.route('/_shootings')
+def fetch_wapo():
+    """Fetch the latest OIS database from GitHub.
+    """
+    host = "https://raw.githubusercontent.com"
+    repo = "washingtonpost/data-police-shootings/master"
+    data = "fatal-police-shootings-data.csv"
+
+    with requests.get('/'.join([host, repo, data]), stream=True) as r:
+        stream = csv.DictReader(codecs.iterdecode(r.iter_lines(), "utf-8"))
+        return jsonify(data=list(stream))
 
 
 @app.route("/")
@@ -69,7 +76,9 @@ def ois():
     pt = os.path.join("app", "static", "js", "ois", "data.js")
     ts = os.path.getmtime(pt)
     dt = datetime.datetime.utcfromtimestamp(ts).strftime("%m-%d-%Y")
-    return render_template("pages/ois.html", states=STATES, updated=dt)
+    return render_template("pages/ois.html",
+        states=[s.abbr for s in us.states.STATES],
+        updated=dt)
 
 
 @app.route("/agencies/<name>")
