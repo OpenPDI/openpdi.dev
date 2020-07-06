@@ -38,6 +38,8 @@
     {{ partial "header" . }}
 
     <div class="main-container">
+      {{ partial "banner" . }}
+
       {{ block "main" . }}{{ end }}
 
       {{ partial "footer" . }}
@@ -49,7 +51,8 @@
     <script type="text/javascript" src="/js/theme/bootstrap.js"></script>
 
     <!-- AOS (Animate On Scroll - animates elements into view while scrolling down) -->
-    <script type="text/javascript" src="/js/theme/aos.js"></script>
+    <!-- <script type="text/javascript" src="/js/theme/aos.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/3.0.0-beta.1/aos.js" integrity="sha512-o5NWBp4t+/CsEqw0qPMjgaWKtCQuDkbou550UhrxfRomLI2rsFgYhhzjuzWv2N++AWthcTtx+N+pv1XmXhv9sQ==" crossorigin="anonymous"></script>
     <!-- Flatpickr (calendar/date/time picker UI) -->
     <script type="text/javascript" src="/js/theme/flatpickr.min.js"></script>
     <!-- Flickity (handles touch enabled carousels and sliders) -->

@@ -2,6 +2,21 @@ body {
     font-family: 'Inter', sans-serif;
 }
 
-.bg-dark {
+.bg-darkish {
     background-color: #2b3137 !important;
+    color: #fff !important;
+}
+
+.bg-blue-gradient {
+    background: linear-gradient(90deg, #257bf9, #2426ca) !important;
+}
+
+.text-underline-warning {
+    background-image: -webkit-gradient(linear, left top, right top, from(rgba(69, 130, 236, 1))) !important;
+    background-image: -o-linear-gradient(left, rgba(69, 130, 236, 1)) !important;
+    background-image: linear-gradient(to right, rgba(69, 130, 236, 1)) !important;
+}
+
+[class*=text-underline-] {
+    background: repeat-x left 1em/1em .15em;
 }
