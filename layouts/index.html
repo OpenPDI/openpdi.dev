@@ -1,3 +1,6 @@
+{{ define "style" }}
+{{ end }}
+
 {{ define "main" }}
 <section class="bg-darkish overflow-hidden">
     <img alt="Image" src="/img/graphic-bg-clouds-5.png" class="bg-image" />
@@ -24,7 +27,7 @@
 <section class="bg-white">
     <div class="container">
         <div class="row justify-content-center text-center">
-            <div class="col-12">
+            <div class="col-10">
                 <span class="title-decorative" data-aos="fade-up" data-aos-delay="10">What do we do?</span>
                 <h2 class="display-4" data-aos="fade-up" data-aos-delay="100">Standardization</h2>
                 <p class="lead" data-aos="fade-up" data-aos-delay="200">
@@ -39,7 +42,7 @@
             <div id="arcs" class="my-3" data-aos-id="chart" data-aos="fade-up" style="position: relative; width: 100%; height: 50%;">
         </div>
         <div class="row justify-content-center text-center">
-            <div class="col-12">
+            <div class="col-10">
                 <p class="lead">
                     The <b>OpenPDI</b> project expands upon this affort by aggregating data from
                     hundreds of individual sources (law enforcement agencies, universities, media
@@ -47,8 +50,140 @@
                     standardized datasets.
                 </p>
                 <p>
-                    <a href="#">Learn more &rsaquo;</a>
+                    <a href="#">Learn More &rsaquo;</a>
                 </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bg-white pt-0">
+    <div class="container">
+        <div class="row justify-content-center text-center section-intro">
+            <div class="col-10">
+                <h2 class="display-4" data-aos="fade-up" data-aos-delay="100">Exploration</h2>
+                <p class="lead" data-aos="fade-up" data-aos-delay="200">
+                    Browse a selection of pre-made (cleaned, standardized, and unified) datasets
+                    on a variety of topics.
+                </p>
+            </div>
+        </div>
+        <ul class="row feature-list feature-list-sm">
+            <li class="col-12 col-md-4">
+                <a href="pages-landing.html" class="card">
+                    <img alt="Image" src="/img/overview/landing-9-hero.jpg" class="img-fluid rounded" />
+                </a>
+                <h5>Use-of-Force Incidents</h5>
+                <p>
+                    Impress potential customers and introduce your product using Wingman’s diverse, purpose-built
+                    landing pages
+                </p>
+                <a href="pages-landing.html">Explore &rsaquo;</a>
+            </li>
+            <!--end of col-->
+            <li class="col-12 col-md-4">
+                <a href="pages-app.html" class="card">
+                    <img alt="Image" src="/img/overview/app-profile-social-hero.jpg" class="img-fluid rounded" />
+                </a>
+                <h5>Officer-Involved Shootings</h5>
+                <p>
+                    A robust suite of styled app pages and flexible Bootstrap-based components makes Wingman ideal for
+                    building Apps
+                </p>
+                <a href="pages-app.html">Explore &rsaquo;</a>
+            </li>
+            <!--end of col-->
+            <li class="col-12 col-md-4">
+                <a href="pages-inner.html" class="card">
+                    <img alt="Image" src="/img/overview/company-simple-hero.jpg" class="img-fluid rounded" />
+                </a>
+                <h5>Traffic Stops</h5>
+                <p>
+                    Landing pages are just the beginning. Wingman includes a collection of detailed inner pages to
+                    complete your online presence.
+                </p>
+                <a href="pages-inner.html">Explore &rsaquo;</a>
+            </li>
+            <!--end of col-->
+        </ul>
+    </div>
+</section>
+
+<section class="bg-white pt-0">
+    <div class="container">
+        <div class="row justify-content-center text-center section-intro">
+            <div class="col-10">
+                <h2 class="display-4" data-aos="fade-up" data-aos-delay="100">Customization</h2>
+                <p class="lead" data-aos="fade-up" data-aos-delay="200">
+                    Create your <i>own</i> datasets and integrate with
+                    modern analysis tools and workflows using our
+                    <a href="#">open-source Python library</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bg-white pt-0">
+    <div class="container">
+        <div class="row justify-content-around align-items-center">
+            <div class="col-12 col-md-6 col-lg-5 text-center text-md-left section-intro">
+                <h3 class="h1">Your research, your tools</h3>
+                <span class="lead">
+                    Our library makes it easy to create custom, standardized
+                    datasets for use with your favorite tools and apps.
+                </span>
+                <a href="pages-inner.html">Get Started &rsaquo;</a>
+            </div>
+            <div class="col-8 col-md-6 col-lg-4">
+                <div class="gallery" id="gallery">
+                    <div class="mb-3 pics animation all 2">
+                        <a href="https://www.python.org/">
+                            <img
+                                class="img-fluid w-75"
+                                src="/img/logos/python.png"
+                                alt="Python logo"
+                                title="Python" />
+                        </a>
+                    </div>
+                    <div class="mb-3 pics animation all 1">
+                        <a href="https://jupyter.org/">
+                            <img
+                                class="img-fluid w-75"
+                                src="/img/logos/Jupyter.png"
+                                alt="Jupyter logo"
+                                title="Jupyter" />
+                        </a>
+                    </div>
+                    <div class="mb-3 pics animation all 2">
+                        <a href="https://powerbi.microsoft.com/en-us/">
+                            <img
+                                class="img-fluid w-75"
+                                src="/img/logos/powerbi.png"
+                                alt="Power BI logo"
+                                title="Power BI" />
+                        </a>
+                    </div>
+                    <div class="mb-3 pics animation all 1">
+                        <a href="https://github.com/">
+                            <img
+                                id="col-lead"
+                                class="img-fluid w-75"
+                                src="/img/logos/github.png"
+                                alt="GitHub logo"
+                                title="GitHub" />
+                        </a>
+                    </div>
+                    <div class="mb-3 pics animation all 2">
+                        <a href="https://git-scm.com/">
+                            <img
+                                class="img-fluid w-75"
+                                src="/img/logos/git.png"
+                                alt="Git logo"
+                                title="Git" />
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
