@@ -1,0 +1,29 @@
+{{ define "main" }}
+
+<section class="space-xs pb-0">
+    <div class="container">
+        <div class="row">
+            <div class="section-intro mt-4">
+                <h1 class="display-4">{{ .Params.title }}</h1>
+            </div>
+        </div>
+        <!--end of row-->
+    </div>
+    <!--end of container-->
+</section>
+
+<!--end of section-->
+<section class="flush-with-above">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <p>{{ .Content }}</p>
+            </div>
+            <!--end of col-->
+        </div>
+        <!--end of row-->
+    </div>
+    <!--end of container-->
+</section>
+
+{{ end }}

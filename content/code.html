@@ -1,0 +1,160 @@
+---
+title: OpenPDI
+slug: code
+layout: blank
+
+needsFA: true
+
+css: [
+    "/css/github-dark.css"
+]
+
+js: [
+    "https://cdn.jsdelivr.net/npm/typed.js@2.0.11",
+    "/js/code/typed.js",
+    "/js/juniper/juniper.min.js",
+    "/js/code/demo.js"
+]
+---
+
+<section class="space-lg pt-0">
+    <img alt="Image" src="/img/graphic-bg-clouds-1.png" class="bg-image" />
+    <div class="container">
+
+        <div class="row justify-content-center space-lg pb-0">
+            <div class="col-12 col-md-9 col-lg-8 text-center">
+                <span class="title-decorative">Get Started in Minutes</span>
+                <h1 class="display-4">OpenPDI + Python</h1>
+                <span class="lead">
+                    OpenPDI provides <b>uniform</b> access to data
+                    from hundreds of sources&mdash;standardizing across file formats,
+                    column naming, and value types.
+                </span>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-9 col-lg-8">
+                <div class="rounded bg-code p-4 text-light text-monospace shadow">
+                    <div>
+                        <span class="text-primary">$</span>
+                        <span class="typed"></span>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <a href="https://github.com/OpenPDI/openpdi" class="btn btn-lg btn-link">View on GitHub <i
+                            class="icon-chevron-right"></i></a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!--end of container-->
+</section>
+
+<section class="bg-white">
+    <div class="container">
+        <div class="row justify-content-around align-items-center">
+            <div class="col-12 col-md-5 col-lg-6 text-center text-md-left section-intro">
+                <span class="title-decorative">Not another framework</span>
+                <h3 class="h1">Simple, yet powerful</h3>
+                <span class="lead">
+                    OpenPDI keeps it simple: it provides access to its library of
+                    sources through a single class.
+                </span>
+                <a href="#">Learn More &rsaquo;</a>
+            </div>
+            <!--end of col-->
+            <div class="col-12 col-md-7 col-lg-6">
+                <figure class="window editor">
+                    <figcaption>
+                        <span class="chrome button close"></span>
+                        <span class="chrome button minimize"></span>
+                        <span class="chrome button fullscreen"></span>
+                        <span class="chrome title">
+                            Edit the code below to try OpenPDI
+                        </span>
+                    </figcaption>
+                    <pre data-executable>import openpdi
+
+# The library has a single entry point:
+dataset = openpdi.Dataset(
+    # The dataset we want
+    "uof",
+    # We're only interested in data from 'TX'
+    scope=["TX"],
+    # We *need* the 'reason' column
+    columns=["reason"],
+    # We don't *only* want the above columns
+    strict=False)
+
+print(dataset)</pre>
+            </figure>
+            </div>
+            <!--end of col-->
+        </div>
+        <!--end of row-->
+    </div>
+    <!--end of container-->
+</section>
+
+<section>
+    <div class="container">
+        <div class="row justify-content-center text-center section-intro">
+            <div class="col-12 col-md-9 col-lg-8">
+                <span class="title-decorative">Use your favorite tools</span>
+                <h3 class="h1">Our data, your workflow</h3>
+                <span class="lead">
+                    OpenPDI easily integrates with modern data sceice tools and
+                    workflows. Get started with a tutorial below.
+                </span>
+            </div>
+            <!--end of col-->
+        </div>
+        <!--end of row-->
+
+        <ul class="row feature-list">
+            <li class="col-12 col-md-4">
+                <i class="fa fa-2x fa-book pb-2" aria-hidden="true"></i>
+                <h5>Colaboratory</h5>
+                <p>
+                    Create zero-configuration, sharable, and interactive
+                    notebooks with <a href="#"">Google Colab</a>.
+                </p>
+            </li>
+            <!--end of col-->
+            <li class="col-12 col-md-4">
+                <i class="fa fa-2x fa-desktop pb-2" aria-hidden="true"></i>
+                <h5>Streamlit</h5>
+                <p>
+                    Turn your OpenPDI dataset into a modern, pure-Python web
+                    app using <a href="#"">Streamlit</a>.
+                </p>
+            </li>
+            <!--end of col-->
+            <li class="col-12 col-md-4">
+                <i class="fa fa-2x fa-bar-chart pb-2" aria-hidden="true"></i>
+                <h5>Power BI</h5>
+                <p>
+                    Create spreadsheet-backed, interactive reports using
+                    OpenPDI and <a href="#"">Power BI</a>.
+                </p>
+            </li>
+            <!--end of col-->
+        </ul>
+        <!--end of row-->
+        <div class="row justify-content-center text-center section-outro">
+            <div class="col-lg-4 col-md-5">
+                <h6>Looking for more?</h6>
+                <p>
+                    Checkout our blog for more OpenPDI-related guides and
+                    tutorials.
+                </p>
+                <a href="#">Read More &rsaquo;</a>
+            </div>
+            <!--end of col-->
+        </div>
+        <!--end of row-->
+    </div>
+    <!--end of container-->
+</section>
