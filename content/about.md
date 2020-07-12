@@ -71,7 +71,8 @@ states, agencies, and even years within the same agency.
 
 ![A diagram showing how different data sources can differ.](/img/diagrams/standard.svg)
 
-The OpenPDI solves this issue by providing <i>standardized</i> access to all or our aggregated data through an MIT-licensed, open-source Python library.
+The OpenPDI solves this issue by providing <i>standardized</i> access to all or our aggregated data
+through an MIT-licensed, open-source Python library.
 
 See the [OpenPDI/code](/code) for more information.
 
