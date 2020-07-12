@@ -1,23 +1,164 @@
 {{ define "main" }}
 
-<section class="space-xs pb-0">
-    <div class="container">
-        <div class="row">
-            <div class="section-intro mt-4">
-                <h1 class="display-4">{{ .Params.title }}</h1>
-            </div>
-        </div>
-        <!--end of row-->
-    </div>
-    <!--end of container-->
-</section>
-
-<!--end of section-->
-<section class="flush-with-above">
+<section class="bg-white pb-0">
     <div class="container">
         <div class="row">
             <div class="col">
-                <p>{{ .Content }}</p>
+                <h1 class="display-4">{{ .Params.title }}</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="space-sm">
+    <div class="container">
+        <div class="row justify-content-between">
+            <div class="col-12 col-md-8 col-lg-7">
+                <article>
+                    {{ .Content }}
+                </article>
+                <hr>
+                <h5 class="mb-4">Did you find this article helpful?</h5>
+                <form class="d-flex justify-content-between">
+                    <div>
+                        <button class="btn btn-outline-primary" type="submit"><i class="icon-thumbs-up"></i>
+                        </button>
+                        <button class="btn btn-outline-primary" type="submit"><i class="icon-thumbs-down"></i>
+                        </button>
+                    </div>
+                    <div>
+                        <a href="#" class="btn btn-outline-primary">Contact Support</a>
+                    </div>
+                </form>
+            </div>
+            <!--end of col-->
+            <div class="col-12 col-md-4">
+                <div class="card">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <div class="d-flex justify-content-between">
+                                <div><i class="icon-text-document mr-1"></i> Created</div>
+                                <span>17/11/2017</span>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="d-flex justify-content-between">
+                                <div><i class="icon-edit mr-1"></i> Last updated</div>
+                                <span>23/12/2017</span>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="d-flex justify-content-between">
+                                <div><i class="icon-thumbs-up mr-1"></i> Likes</div>
+                                <span>214</span>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="d-flex justify-content-between">
+                                <div><i class="icon-share mr-1"></i> Shares</div>
+                                <span>52</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between">
+                        <div>
+                            <span class="h6">Development</span>
+                            <span class="badge badge-secondary">6</span>
+                        </div>
+                        <a href="#">View all &rsaquo;</a>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-unstyled list-spacing-sm">
+                            <li>
+                                <i class="icon-text-document text-muted mr-1"></i>
+                                <a href="#">Setting up API end-points</a>
+                            </li>
+                            <li>
+                                <i class="icon-text-document text-muted mr-1"></i>
+                                <a href="#">Importing contacts via CSV</a>
+                            </li>
+                            <li>
+                                <i class="icon-text-document text-muted mr-1"></i>
+                                <a href="#">Integrating your Gulp workflow</a>
+                            </li>
+                            <li>
+                                <i class="icon-text-document text-muted mr-1"></i>
+                                <a href="#">Forking a repo</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!--end of card-->
+                <div class="card">
+                    <div class="card-header">
+                        <span class="h6">Categories</span>
+                    </div>
+                    <div class="list-group list-group-flush">
+
+                        <a class="list-group-item d-flex justify-content-between" href="#">
+                            <div>
+                                <i class="icon-area-graph mr-1"></i>
+                                <span>Analytics</span>
+                            </div>
+                            <div>
+                                <i class="icon-chevron-right"></i>
+                            </div>
+                        </a>
+
+                        <a class="list-group-item d-flex justify-content-between" href="#">
+                            <div>
+                                <i class="icon-power-plug mr-1"></i>
+                                <span>API Integration</span>
+                            </div>
+                            <div>
+                                <i class="icon-chevron-right"></i>
+                            </div>
+                        </a>
+
+                        <a class="list-group-item d-flex justify-content-between" href="#">
+                            <div>
+                                <i class="icon-credit-card mr-1"></i>
+                                <span>Billing</span>
+                            </div>
+                            <div>
+                                <i class="icon-chevron-right"></i>
+                            </div>
+                        </a>
+
+                        <a class="list-group-item d-flex justify-content-between" href="#">
+                            <div>
+                                <i class="icon-code mr-1"></i>
+                                <span>Development</span>
+                            </div>
+                            <div>
+                                <i class="icon-chevron-right"></i>
+                            </div>
+                        </a>
+
+                        <a class="list-group-item d-flex justify-content-between" href="#">
+                            <div>
+                                <i class="icon-shield mr-1"></i>
+                                <span>Security</span>
+                            </div>
+                            <div>
+                                <i class="icon-chevron-right"></i>
+                            </div>
+                        </a>
+
+                        <a class="list-group-item d-flex justify-content-between" href="#">
+                            <div>
+                                <i class="icon-folder mr-1"></i>
+                                <span>Storage</span>
+                            </div>
+                            <div>
+                                <i class="icon-chevron-right"></i>
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
             </div>
             <!--end of col-->
         </div>
@@ -25,5 +166,6 @@
     </div>
     <!--end of container-->
 </section>
+
 
 {{ end }}
